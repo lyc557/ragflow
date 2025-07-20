@@ -312,6 +312,11 @@ docker build --platform linux/amd64 --build-arg NEED_MIRROR=1 -f Dockerfile -t i
    cd ragflow/
    uv sync --python 3.10 --all-extras # install RAGFlow dependent python modules
    uv run download_deps.py
+   # uv run download_deps.py --china-mirrors # 国内用户可以使用该参数开启国内镜像
+   # 或者使用代理
+   export https_proxy=http://192.168.31.120:9666
+   export http_proxy=http://192.168.31.120:9666
+   uv run download_deps.py
    pre-commit install
    ```
 
